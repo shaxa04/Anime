@@ -92,7 +92,7 @@ if ($maxfiy_kanallar) {
 
         // 📌 Agar fayl mavjud bo‘lmasa yoki ichida ID yo‘q bo‘lsa, tugma qo‘shamiz
         if (!file_exists($fayl_nomi) || !in_array($id, explode("\n", trim(file_get_contents($fayl_nomi))))) {
-            $buttons[] = [['text' => "❌ Maxfiy kanal", 'url' => $link]];
+            $buttons[] = [['text' => "❌ Maxfiy anime", 'url' => $link]];
         }
     }
 }
@@ -195,7 +195,7 @@ if (!in_array($join_user_id, $ids)) {
 
     bot('SendMessage',[
         'chat_id' => $join_user_id,
-        'text' => "<b>/start - bosing va kino kodini yuboring!</b>",
+        'text' => "<b>/start - bosing va anime kodini yuboring!</b>",
         'parse_mode' => 'html'
     ]);
 }
@@ -227,13 +227,13 @@ if(file_get_contents("admin/admins.txt")){
 	}else{
 if(file_put_contents("admin/admins.txt","$XasanovUz"));
 }
-if(file_get_contents("kino/son.txt")){
+if(file_get_contents("anime/son.txt")){
 	}else{
-if(file_put_contents("kino/son.txt","0"));
+if(file_put_contents("anime/son.txt","0"));
 }
-if(file_get_contents("kino/kodi.txt")){
+if(file_get_contents("anime/kodi.txt")){
 	}else{
-if(file_put_contents("kino/kodi.txt","0"));
+if(file_put_contents("anime/kodi.txt","0"));
 }
 if(file_get_contents("egaa.txt")){
 	}else{
@@ -245,10 +245,10 @@ $file = $photo[count($photo)-1]->file_id;
 
 
 mkdir("step");
-mkdir("kino");
+mkdir("anime");
 
-if(file_get_contents("kino/id.txt")==null){
-file_put_contents("kino/id.txt",0);
+if(file_get_contents("anime/id.txt")==null){
+file_put_contents("anime/id.txt",0);
 }
 
 $test1 = file_get_contents("step/test1.txt");
@@ -259,7 +259,7 @@ $test5 = file_get_contents("step/test5.txt");
 $test6 = file_get_contents("step/test6.txt");
 $test7 = file_get_contents("step/test7.txt");
 $test8 = file_get_contents("step/test8.txt");
-$last_kino = file_get_contents("kino/id.txt");
+$last_kino = file_get_contents("anime/id.txt");
 $step = file_get_contents("step/$cid.step");
 
 
@@ -337,13 +337,13 @@ bot('sendMessage',[
 }}
 
 $kanal_uz = file_get_contents("step/kanal.txt");
-$kanalcha = file_get_contents("kino_ch.txt");
+$kanalcha = file_get_contents("anime_ch.txt");
 $holat = file_get_contents("holat.txt");
 
 $panel = json_encode([
 'resize_keyboard'=>true,
 'keyboard'=>[
-[['text'=>"📢 Kanallar"],['text'=>"📥 Kino Yuklash"]],
+[['text'=>"📢 Kanallar"],['text'=>"📥 anime Yuklash"]],
 [['text'=>"✉ Xabarnoma"],['text'=>"📊 Statistika"]],
 [['text'=>"🤖 Bot holati"],['text'=>"👥 Adminlar"]],
 [['text'=>"◀️ Orqaga"]],
@@ -427,7 +427,7 @@ if ($text == "/start" and joinchat($cid) == true) {
 /start - ♻️ Botni qayta ishga tushirish
 /help - ☎️ Qo'llab-quvvatlash</blockquote>
 
-🔎 Film kodini yuboring:</b>",
+🔎 anime kodini yuboring:</b>",
         'parse_mode' => 'html',
         'disable_web_page_preview' => true,
         'reply_markup' => json_encode([
